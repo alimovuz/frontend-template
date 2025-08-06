@@ -10,6 +10,22 @@ import MainLayout from "../components/layout";
 
 const createComponent = (Component: React.ComponentType): ReactNode =>  <Component />
 
+const collectRoutes = (route: TypeRoutes): RouteObject[] => {
+    const routes: RouteObject[] = [];
+    if (route.submenu?.length && route.config.structure === "layout") {
+        route.submenu.map((subRoute: TypeRoutes) => collectRoutes(subRoute))
+    }
+
+    if (checkPermission(route.config.permission) || checkRole(route.config.allowed_roles)) {
+        routes.push({
+            path: route.path,
+            element: createComponent(route.component),
+        });
+    }
+
+    return routes
+}
+
 const createRoutes = (isAuthenticated: boolean) => {
     if (isAuthenticated) {
         return [
@@ -17,26 +33,7 @@ const createRoutes = (isAuthenticated: boolean) => {
                 element: <MainLayout />,
                 children: [
                     ...sidebarRoutes.flatMap((route: TypeRoutes) => {
-                        const routes: RouteObject[] = [];
-
-                        if (route.submenu?.length && route.config.structure === "layout") {
-                            const subRoutes = route.submenu.filter((subRoute: TypeRoutes) => {
-                            return checkPermission(subRoute.config.permission) || checkRole(subRoute.config.allowed_roles);
-                            }).map((subRoute: TypeRoutes) => ({
-                            path: subRoute.path,
-                            element: createComponent(subRoute.component),
-                        }));
-                        routes.push(...subRoutes);
-                        }
-                        
-                        if (checkPermission(route.config.permission) || checkRole(route.config.allowed_roles)) {
-                            routes.push({
-                                path: route.path,
-                                element: createComponent(route.component),
-                            });
-                        }
-
-                        return routes;
+                        return collectRoutes(route)
                     }),
                     {
                         path: "/",
@@ -66,7 +63,7 @@ const createRoutes = (isAuthenticated: boolean) => {
 
 const RoutesMiddleware = () => {
   const { isAuthenticated } = useAuth();
-
+  
   const router = createBrowserRouter(createRoutes(isAuthenticated));
 
   return <RouterProvider router={router} />;

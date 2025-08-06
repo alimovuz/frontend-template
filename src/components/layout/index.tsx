@@ -1,23 +1,16 @@
-import { Button, Layout, Menu, theme } from "antd"
+import { Button, Layout, theme } from "antd"
 import { Content, Header } from "antd/es/layout/layout"
-import Sider from "antd/es/layout/Sider"
 import { useState, type FC } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Outlet } from "react-router-dom";
+import Sidebar from "./sidebar";
 
 const MainLayout: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {token: { colorBgContainer, borderRadiusLG }} = theme.useToken();
   return (
     <Layout style={{minHeight: "100vh"}}>
-      <Sider width={320} style={{background: colorBgContainer, borderRight: "1px solid #d9d9d9"}} trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[]}
-        />
-      </Sider>
+      <Sidebar collapsed={collapsed}/>
       <Layout>
         <Header style={{background: colorBgContainer, borderBottom: "1px solid #d9d9d9", padding: 0}}>
           <Button

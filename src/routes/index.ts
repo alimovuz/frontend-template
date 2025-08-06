@@ -28,7 +28,7 @@ const sidebarRoutes: Array<TypeRoutes> = [
             structure: 'layout',
             isMenu: true,
             allowed_roles: []
-        }
+        },
     },
     {
         name: "Not Found",
