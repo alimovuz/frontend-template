@@ -1,10 +1,11 @@
 import { Button, Layout, Menu, theme } from "antd"
 import { Content, Header } from "antd/es/layout/layout"
 import Sider from "antd/es/layout/Sider"
-import { useState, type FC, type ReactNode } from "react";
+import { useState, type FC } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Outlet } from "react-router-dom";
 
-const MainLayout: FC<{children: ReactNode}> = ({children}) => {
+const MainLayout: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {token: { colorBgContainer, borderRadiusLG }} = theme.useToken();
   return (
@@ -32,15 +33,15 @@ const MainLayout: FC<{children: ReactNode}> = ({children}) => {
         </Header>
         <Content
           style={{
-            margin: '16px',
-            padding: 24,
+            margin: '12px',
+            padding: 16,
             minHeight: 280,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
             border:"1px solid #d9d9d9"
           }}
         >
-          {children}
+          <Outlet/>
         </Content>
       </Layout>
     </Layout>

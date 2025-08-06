@@ -1,11 +1,9 @@
 import './App.css'
-import MainLayout from './components/layout'
+import RoutesMiddleware from './routes/routesMiddleware'
 
 function App() {
 
-  return (
-    <MainLayout>Salom</MainLayout>
-  )
+  return <RoutesMiddleware />
 }
 
 export default App

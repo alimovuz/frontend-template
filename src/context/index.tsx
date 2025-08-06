@@ -21,7 +21,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [currentUser, setCurrentUser] = React.useState<any>(null);
     const [permissions, setPermissions] = React.useState<string[]>([]);
     const [role, setRole] = React.useState<string | null>(null);
-    const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(false);
+    const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(true);
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const hasInitialized = React.useRef(false);
 
