@@ -1,9 +1,10 @@
 import './App.css'
+import MainLayout from './components/layout'
 
 function App() {
 
   return (
-    <h2>Salom</h2>
+    <MainLayout>Salom</MainLayout>
   )
 }
 
