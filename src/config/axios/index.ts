@@ -1,12 +1,13 @@
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import { API_URL } from "../constants";
 
 interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
     _retry?: boolean
 }
 
 const instance = axios.create({
-    baseURL: import.meta.env.BASE_URL,
+    baseURL: API_URL,
     headers: {
         "Content-Type": "application/json"
     }
