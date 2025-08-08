@@ -37,17 +37,14 @@ const renderMenuItems = (menuItems: TypeRoutes[]): MenuProp[] => {
 
 
 const Sidebar:FC<{collapsed: boolean}> = ({collapsed}) => {
-  const {token: { colorBgContainer }} = theme.useToken();
+    const {token: { colorBgContainer }} = theme.useToken();
   
-  return (
-      <Sider width={320} style={{background: colorBgContainer, borderRight: "1px solid #d9d9d9"}} trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          mode="inline"
-          items={renderMenuItems(sidebarRoutes)}
-        />
-      </Sider>
-  )
+    return (
+        <Sider width={320} style={{background: colorBgContainer, borderRight: "1px solid #d9d9d9"}} trigger={null} collapsible collapsed={collapsed}>
+            <div className="demo-logo-vertical h-16 mb-5" />
+            <Menu mode="inline" items={renderMenuItems(sidebarRoutes)}/>
+        </Sider>
+    )
 }
 
 export default Sidebar
