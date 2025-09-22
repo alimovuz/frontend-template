@@ -2,7 +2,7 @@ import { TimePicker } from "antd";
 import { useTranslation } from "react-i18next";
 import dayjs, { Dayjs } from "dayjs";
 import { useState, type FC } from "react";
-import type { InputType } from "./types/inputs";
+import type { InputType } from "../../types/inputs";
 
 interface InputProps extends InputType {
   [key: string]: any;

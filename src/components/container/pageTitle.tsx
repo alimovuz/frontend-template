@@ -2,8 +2,8 @@ import React from "react";
 import { Row, Col, Breadcrumb } from "antd";
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import type { IPageHeader } from "./types";
 import { Back } from "../buttons/back";
+import type { IPageHeader } from "../../types/container";
 
 const PageTitle: React.FC<IPageHeader> = ({ title, actions, style, className, back, breadcrumb }) => {
   const { t } = useTranslation();

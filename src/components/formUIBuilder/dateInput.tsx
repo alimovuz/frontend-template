@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { DatePicker } from "antd";
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
-import type { InputType } from "./types/inputs";
+import type { InputType } from "../../types/inputs";
 
 export const DateInput = ({
   defaultValue,

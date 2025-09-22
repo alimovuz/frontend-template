@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import { Button, Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
-import type { IContainer } from "./types";
 import PageTitle from "./pageTitle";
 import checkPermission from "../../utils/check_permission";
+import type { IContainer } from "../../types/container";
 
 const Container: React.FC<IContainer> = ({ title, isButton, create_permession, url, onClick, children, buttonTitle, isButtonNone, actions, back, breadcrumb }) => {
   const { t } = useTranslation();

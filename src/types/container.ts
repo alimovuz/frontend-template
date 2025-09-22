@@ -1,4 +1,4 @@
-import type { IBreadcroumb } from "../../../types/breadcroumb";
+import type { IBreadcroumb } from "./breadcroumb";
 
 interface IPageHeader {
   title?: string;
@@ -19,7 +19,7 @@ type IContainer = {
   buttonTitle?: string;
   isButtonNone?: boolean;
   actions?: React.JSX.Element;
-  back?: boolean | undefined;
+  back?: boolean;
   breadcrumb?: IBreadcroumb[];
 };
 

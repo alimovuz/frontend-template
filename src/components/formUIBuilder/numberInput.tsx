@@ -1,6 +1,6 @@
 import { useState, type FC } from "react";
 import { Input } from "antd";
-import type { InputType } from "./types/inputs";
+import type { InputType } from "../../types/inputs";
 
 export const NumberInput:FC<InputType> = ({defaultValue, readonly, className, onChange, placeholder, maxLength}) => {
   const [value, setValue] = useState(defaultValue);

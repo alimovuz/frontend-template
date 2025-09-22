@@ -4,7 +4,7 @@ import { PhoneInput } from "./phoneInput";
 import { PassportNumber, PassportPNFL, PassportSeria } from "./passportDataInputs";
 import { TimeInput } from "./timeInput";
 import { DateInput } from "./dateInput";
-import type { IField, ITypeFormUIBuilder } from "./types/formUIBuilder";
+import type { IField, ITypeFormUIBuilder } from "../../types/formUIBuilder";
 import { NumberInput } from "./numberInput";
 import { PasswordInput } from "./passwordInput";
 

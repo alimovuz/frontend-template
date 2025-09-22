@@ -1,10 +1,9 @@
 import { Row } from "antd"
 import FormUIBuilder from "../../components/formUIBuilder"
-import type { ITypeFormUIBuilder } from "../../components/formUIBuilder/types/formUIBuilder"
+import type { ITypeFormUIBuilder } from "../../types/formUIBuilder"
 import Container from "../../components/container"
 
 const Dashboard = () => {
-	
 	const formUIData: ITypeFormUIBuilder['formUIData'] = [
 		{
 			name: 'first_name',

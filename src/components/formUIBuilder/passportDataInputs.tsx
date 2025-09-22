@@ -1,6 +1,6 @@
 import { Input } from "antd"
 import { useState, type FC } from "react"
-import type { InputType } from "./types/inputs";
+import type { InputType } from "../../types/inputs";
 
 export const PassportSeria:FC<InputType> = ({defaultValue, readonly, className, onChange, placeholder}) => {
   const [value, setValue] = useState(defaultValue);

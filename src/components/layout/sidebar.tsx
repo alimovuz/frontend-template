@@ -38,11 +38,13 @@ const renderMenuItems = (menuItems: TypeRoutes[]): MenuProp[] => {
 
 const Sidebar:FC<{collapsed: boolean}> = ({collapsed}) => {
     const {token: { colorBgContainer }} = theme.useToken();
+    const pathname = window.location.pathname;
+  const basePath = "/" + pathname.split("/")[1];
   
     return (
         <Sider width={320} style={{background: colorBgContainer, borderRight: "1px solid #d9d9d9"}} trigger={null} collapsible collapsed={collapsed}>
             <div className="demo-logo-vertical h-16 mb-5" />
-            <Menu mode="inline" items={renderMenuItems(sidebarRoutes)}/>
+            <Menu mode="inline" items={renderMenuItems(sidebarRoutes)} defaultSelectedKeys={[basePath]}/>
         </Sider>
     )
 }

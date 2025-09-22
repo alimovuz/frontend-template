@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Input } from "antd";
 import { useState } from "react";
-import type { InputType } from "./types/inputs";
+import type { InputType } from "../../types/inputs";
 
 export const PasswordInput = ({
   onChange,
