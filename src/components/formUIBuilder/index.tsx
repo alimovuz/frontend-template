@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import type { IField, ITypeFormUIBuilder } from "../../types/formUIBuilder";
 import { Col, Form, Input, Select, Space } from "antd";
-import { NumberInput } from "./NumberInput";
-import { PasswordInput } from "./PasswordInput";
 import { PhoneInput } from "./phoneInput";
 import { PassportNumber, PassportPNFL, PassportSeria } from "./passportDataInputs";
 import { TimeInput } from "./timeInput";
 import { DateInput } from "./dateInput";
+import type { IField, ITypeFormUIBuilder } from "./types/formUIBuilder";
+import { NumberInput } from "./numberInput";
+import { PasswordInput } from "./passwordInput";
 
 const FormUIBuilder: React.FC<ITypeFormUIBuilder> = ({ formUIData }) => {
     const {t} = useTranslation()

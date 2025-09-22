@@ -7,6 +7,10 @@ interface IAuthContext {
     isAuthenticated: boolean;
     isLoading: boolean;
     permissions: string[];
+    offset: number;
+    setOffset: React.Dispatch<React.SetStateAction<number>>;
+    limit: number;
+    setLimit: React.Dispatch<React.SetStateAction<number>>;
     login: (username: string, password: string) => Promise<boolean>;
     logout: () => Promise<boolean>;
 }
@@ -20,6 +24,8 @@ interface AuthProviderProps {
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [currentUser, setCurrentUser] = React.useState<any>(null);
     const [permissions, setPermissions] = React.useState<string[]>([]);
+    const [offset, setOffset] = React.useState<number>(0);
+    const [limit, setLimit] = React.useState<number>(10);
     const [role, setRole] = React.useState<string | null>(null);
     const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(true);
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -85,7 +91,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
     }
 
-    const authContextValue = {currentUser, role, isAuthenticated, permissions, isLoading, login, logout};
+    const authContextValue = {currentUser, role, isAuthenticated, permissions, isLoading, offset, limit, setOffset, setLimit, login, logout};
 
     return <AuthContext.Provider value={authContextValue}>
         {children}

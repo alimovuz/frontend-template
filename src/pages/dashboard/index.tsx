@@ -1,55 +1,63 @@
 import { Row } from "antd"
 import FormUIBuilder from "../../components/formUIBuilder"
-import type { ITypeFormUIBuilder } from "../../types/formUIBuilder"
+import type { ITypeFormUIBuilder } from "../../components/formUIBuilder/types/formUIBuilder"
+import Container from "../../components/container"
 
 const Dashboard = () => {
-  const formUIData: ITypeFormUIBuilder['formUIData'] = [
+	
+	const formUIData: ITypeFormUIBuilder['formUIData'] = [
 		{
 			name: 'first_name',
 			label: 'Name',
-      type: "text",
+			type: "text",
 			required: true,
 			col: 12,
 		},
-    {
+		{
 			name: 'raqam',
 			label: 'Raqam',
-      type: "number",
+			type: "number",
 			required: true,
 			col: 12,
 		},
-    {
+		{
 			name: 'password',
 			label: 'Password',
-      type: "password",
+			type: "password",
 			required: true,
 			col: 12,
 		},
-    {
+		{
 			name: 'text',
 			label: 'Text',
-      type: "textarea",
+			type: "textarea",
 			required: true,
 			col: 12,
 		},
-    {
+		{
 			name: 'time',
 			label: 'Time',
-      type: "time",
+			type: "time",
 			required: true,
 			col: 12,
 		},
-    {
+		{
 			name: 'date',
 			label: 'Date',
-      type: "date",
+			type: "date",
 			required: true,
 			col: 12,
 		},
 	]
-  return <Row gutter={12}>
-  <FormUIBuilder formUIData={formUIData}/>
-  </Row>
+
+	return (
+	<Container title={"Dashboard"} isButton={true} create_permession="">
+		<Row gutter={12}>
+			<FormUIBuilder formUIData={formUIData}/>
+		</Row>
+	</Container> 
+	)
+
 }
 
 export default Dashboard

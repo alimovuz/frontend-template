@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Input } from "antd";
-import type { InputType } from "../../types/inputs";
 import { useTranslation } from "react-i18next";
+import type { InputType } from "./types/inputs";
 
 const formatPhoneNumber = (value: string): string => {
   const cleaned = value.replace(/[^\d+]/g, '');
