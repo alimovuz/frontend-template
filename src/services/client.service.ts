@@ -21,16 +21,8 @@ const sendData: TypeSendType = async ({ url, method = "POST", data}) => {
     return response?.data;
 }
 
-const deleteData = async (url: string, id: number | string, data?: any, notify?: (status: 'success' | 'error', type: 'delete', message: string) => void): Promise<AxiosResponse> => {
+const deleteData = async (url: string, id: number | string, data?: any): Promise<AxiosResponse> => {
     const response = await instance(data ? { url: `${url}/${id}`, method: "DELETE", data: data } : { url: `${url}/${id}`, method: "DELETE" });
-    const message = response?.data?.message || 'Nomaʼlum holat';
-
-    if (response.status >= 200 && response.status < 300) {
-        notify?.('success', 'delete', message)
-    } else {
-        notify?.('error', 'delete', message)
-    }
-
     return response
 }
 

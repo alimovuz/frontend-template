@@ -10,19 +10,19 @@ type TypeActions = {
 	url: string
 	onClickView: () => void
 	onClickEdit: () => void
-	view: string
-	edit: string
-	remove: string
+	view_permission: string
+	edit_permission: string
+	delete_permission: string
 	refetch?: ReturnType<typeof useQuery<any>>['refetch'];
 	confirmPlacement?: 'left' | 'right' | 'top' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 }
 
-const Actions: React.FC<TypeActions> = ({ id, url, onClickView, onClickEdit, view, edit, remove, refetch, confirmPlacement }) => {
+const Actions: React.FC<TypeActions> = ({ id, url, onClickView, onClickEdit, view_permission, edit_permission, delete_permission, refetch, confirmPlacement }) => {
     const { t } = useTranslation()
 
     return (
         <>
-            {checkPermission(view) && (
+            {checkPermission(view_permission) && (
 				<div onClick={onClickView}
 					className='flex items-center justify-center py-1 px-2 rounded-md cursor-pointer border border-gray-200' >
 					<Tooltip placement='top' title={t('View')}>
@@ -31,7 +31,7 @@ const Actions: React.FC<TypeActions> = ({ id, url, onClickView, onClickEdit, vie
 				</div>
 			)}
 
-			{checkPermission(edit) ? (
+			{checkPermission(edit_permission) && (
 				<div
 					onClick={onClickEdit}
 					className='flex items-center justify-center bg-lime-50 py-1 px-2 rounded-md cursor-pointer border border-lime-200'>
@@ -39,10 +39,10 @@ const Actions: React.FC<TypeActions> = ({ id, url, onClickView, onClickEdit, vie
 						<LuPencil size={16} className='text-green-500' />
 					</Tooltip>
 				</div>
-			) : null}
+			)}
 
-			{checkPermission(remove) && (
-				<DeleteData permission={remove} refetch={refetch} url={url} id={id} placement={confirmPlacement} >
+			{checkPermission(delete_permission) && (
+				<DeleteData permission={delete_permission} refetch={refetch} url={url} id={id} placement={confirmPlacement} >
 					<div className='flex items-center justify-center bg-red-50 py-1 px-2 rounded-md cursor-pointer border border-red-200'>
 						<LuTrash2 size={16} className='text-red-500' />
 					</div>
