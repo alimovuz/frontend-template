@@ -5,7 +5,7 @@ import type { TypeRoutes } from '../../routes/type'
 import checkPermission from '../../utils/check_permission'
 import checkRole from '../../utils/check_role'
 import { sidebarRoutes } from '../../routes'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 type MenuProp = {
     key: string,
     icon: ReactNode,
@@ -37,14 +37,16 @@ const renderMenuItems = (menuItems: TypeRoutes[]): MenuProp[] => {
 
 
 const Sidebar:FC<{collapsed: boolean}> = ({collapsed}) => {
-    const {token: { colorBgContainer }} = theme.useToken();
-    const pathname = window.location.pathname;
+  const {token: { colorBgContainer }} = theme.useToken();
+  const { pathname } = useLocation();
   const basePath = "/" + pathname.split("/")[1];
+
+  console.log(basePath)
   
     return (
         <Sider width={320} style={{background: colorBgContainer, borderRight: "1px solid #d9d9d9"}} trigger={null} collapsible collapsed={collapsed}>
             <div className="demo-logo-vertical h-16 mb-5" />
-            <Menu mode="inline" items={renderMenuItems(sidebarRoutes)} defaultSelectedKeys={[basePath]}/>
+            <Menu mode="inline" items={renderMenuItems(sidebarRoutes)} selectedKeys={[basePath]}/>
         </Sider>
     )
 }
