@@ -5,6 +5,8 @@ import checkPermission from "../utils/check_permission";
 import checkRole from "../utils/check_role";
 import { createBrowserRouter, Navigate, RouterProvider, type RouteObject } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+
+// I think you should use lazy loading here to reduce chuck you
 import SignIn from "../pages/auth/login";
 import MainLayout from "../components/layout";
 
